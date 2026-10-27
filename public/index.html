@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>POS</title><meta name="theme-color" content="#0f766e"><link rel="stylesheet" href="styles.css"></head>
+<body>
+<section id="login" class="center hidden"><h1>POS</h1><p data-i="tag"></p>
+<button id="gbtn" class="btn" data-i="signin"></button><div class="langs"><button data-l="en">English</button><button data-l="si">සිංහල</button></div></section>
+<section id="setup" class="center hidden"><h1 data-i="setup"></h1>
+<form id="sf" class="card"><label><span data-i="shop"></span><input id="sh" required maxlength="60"></label>
+<label><span data-i="cur"></span><input id="sc" value="Rs" maxlength="6" required></label>
+<label><span data-i="tz"></span><input id="stz" value="Asia/Colombo" required></label>
+<button class="btn" data-i="start"></button></form></section>
+<div id="app" class="hidden">
+<header><b id="shopName"></b><span class="grow"></span><button data-l="en">EN</button><button data-l="si">සි</button><button id="out" data-i="logout"></button></header>
+<div id="banner" class="banner hidden"></div>
+<main>
+<section class="panel" id="sell"><div class="row"><button id="scanBtn" class="btn grow"></button></div>
+<div id="reader"></div>
+<input id="q" data-p="search" autocomplete="off"><div id="res" class="list"></div>
+<h2 data-i="cart"></h2><div id="cart" class="list"></div>
+<div class="total"><span data-i="total"></span><b id="tot"></b></div>
+<div class="row"><button id="clear" class="btn ghost" data-i="clear"></button><button id="pay" class="btn grow" data-i="pay"></button></div></section>
+<section class="panel" id="products"><form id="pf" class="card"><input type="hidden" id="pid">
+<label><span data-i="name"></span><input id="pn" required maxlength="80"></label>
+<div class="grid3"><label><span data-i="price"></span><input id="pp" type="number" min="0" step="0.01" required></label>
+<label><span data-i="stock"></span><input id="ps" type="number" min="0" step="1" required></label>
+<label><span data-i="low"></span><input id="pl" type="number" min="0" step="1" value="5" required></label></div>
+<div class="row"><button type="button" id="pcancel" class="btn ghost hidden" data-i="cancel"></button><button class="btn grow" data-i="save"></button></div></form>
+<div id="plist" class="list"></div></section>
+<section class="panel" id="qr"><div class="row noprint"><label class="grow"><span data-i="copies"></span><input id="copies" type="number" min="1" max="50" value="1"></label>
+<button id="print" class="btn" data-i="print"></button></div><p class="hint noprint" data-i="qrhint"></p>
+<div id="printArea"></div></section>
+<section class="panel" id="reports"><div class="row"><select id="rtype"><option value="day" data-i="daily"></option><option value="month" data-i="monthly"></option></select>
+<input type="date" id="rday"><input type="month" id="rmonth" class="hidden"></div>
+<div id="rout"></div></section>
+</main>
+<nav><button data-tab="sell" data-i="sell"></button><button data-tab="products" data-i="products"></button><button data-tab="qr" data-i="qrtab"></button><button data-tab="reports" data-i="reports"></button></nav>
+<div id="toast" class="toast hidden"></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+<script type="module" src="app.js"></script></body></html>
